@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Surface Scanner</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <div>
+        <p class="eyebrow">Authorized discovery console</p>
+        <h1>Surface Scanner</h1>
+      </div>
+      <p class="tagline">Bounded discovery for systems you own or are authorized to assess.</p>
+    </header>
+
+    <section class="layout">
+      <form class="panel" id="scan-form">
+        <h2>Start an assessment</h2>
+        <label for="target">Target</label>
+        <input id="target" name="target" type="text" value="127.0.0.1" required placeholder="IP address, hostname, or URL">
+        <p class="hint">Public targets require an approved backend allowlist entry.</p>
+
+        <label for="ports">TCP ports</label>
+        <input id="ports" name="ports" type="text" value="22,80,443" required>
+        <p class="hint">Use 1-128 ports. No credentials, brute force, or exploitation.</p>
+
+        <label class="check"><input name="authorized" type="checkbox" required><span>I have authorization to assess this target.</span></label>
+        <label class="check"><input name="public-confirm" type="checkbox"><span>I approve the public-target warning when applicable.</span></label>
+        <label for="approved-target">Approved public target</label>
+        <input id="approved-target" name="approved-target" type="text" placeholder="Required only for public targets">
+
+        <button id="scan-button" type="submit">Run discovery scan</button>
+        <p id="status" class="status" role="status"></p>
+      </form>
+
+      <section class="panel">
+        <div id="empty" class="empty"><strong>Ready for a target</strong><br>Results will appear here after a scan.</div>
+        <div id="results" hidden></div>
+      </section>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
