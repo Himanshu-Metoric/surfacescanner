@@ -1,0 +1,2 @@
+[console_scripts]
+surface-scan = surface_scanner.cli:main
